@@ -27,19 +27,20 @@ class YouTubeDebugger extends Component {
     }
 
     handleClickForResolution = () => {
-        const { settings } = { ...this.state };
-        const { video } = settings   
-        
         this.setState({ 
-        video: {
-                ...video,
-                resolution: "720p"
+            ...this.state,
+            settings: {
+                ...this.state.settings,
+                    video: {...this.state.settings.video,
+                    resolution: "720p"
+                    }
             }
         });
     }
     
     
     render() {
+        console.log("youTubeDebuggerState; ", this.state)
         return (
             <div>
                 <button className="bitrate" onClick={this.handleClickForBitrate}> change bitrate to 12 </button>
